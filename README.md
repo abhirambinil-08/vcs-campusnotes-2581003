@@ -21,3 +21,6 @@ How to Run
 
 Project Purpose
 Created as part of the Version Control System (CSE25303) assignment.
+
+## Collaboration Test
+This change was committed from a second local clone to verify the remote workflow.
