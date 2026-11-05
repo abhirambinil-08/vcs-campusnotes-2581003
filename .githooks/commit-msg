@@ -1,0 +1,20 @@
+#!/bin/sh
+
+message=$(cat "$1")
+
+if [ ${#message} -lt 10 ]; then
+    echo "ERROR: Commit message must contain at least 10 characters."
+    exit 1
+fi
+
+case "$message" in
+    feat:*|fix:*|docs:*|refactor:*|chore:*)
+        echo "Commit message check passed!"
+        exit 0
+        ;;
+    *)
+        echo "ERROR: Invalid commit message format."
+        echo "Use feat:, fix:, docs:, refactor: or chore:"
+        exit 1
+        ;;
+esac

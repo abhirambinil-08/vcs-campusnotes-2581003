@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if git diff --cached --unified=0 --no-ext-diff --no-color -- . ':(exclude).githooks/pre-commit' | grep -nE '^\+.*(TODO|FIXME)'
+then
+    echo "ERROR: TODO or FIXME found in staged changes!"
+    echo "Commit rejected!"
+    exit 1
+fi
+
+echo "Pre-commit check passed!"
+exit 0
