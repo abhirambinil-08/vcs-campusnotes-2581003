@@ -37,6 +37,34 @@ function saveNotes() {
     }
 }
 
+function createNoteCard(note, index) {
+    const card = document.createElement("div");
+    card.className = "note-card";
+
+    const subject = document.createElement("strong");
+    subject.textContent = note.subject;
+
+    const heading = document.createElement("h3");
+    heading.textContent = note.title;
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = note.content;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.className = "delete-btn";
+
+    deleteButton.addEventListener("click", () => {
+        notes.splice(index, 1);
+        saveNotes();
+        displayNotes();
+    });
+
+    card.append(subject, heading, paragraph, deleteButton);
+
+    return card;
+}
+
 function displayNotes() {
     if (!notesList) {
         return;
@@ -50,30 +78,7 @@ function displayNotes() {
     }
 
     notes.forEach((note, index) => {
-        const card = document.createElement("div");
-        card.className = "note-card";
-
-        const subject = document.createElement("strong");
-        subject.textContent = note.subject;
-
-        const heading = document.createElement("h3");
-        heading.textContent = note.title;
-
-        const paragraph = document.createElement("p");
-        paragraph.textContent = note.content;
-
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
-        deleteButton.className = "delete-btn";
-
-        deleteButton.addEventListener("click", () => {
-            notes.splice(index, 1);
-            saveNotes();
-            displayNotes();
-        });
-
-        card.append(subject, heading, paragraph, deleteButton);
-        notesList.appendChild(card);
+        notesList.appendChild(createNoteCard(note, index));
     });
 }
 
