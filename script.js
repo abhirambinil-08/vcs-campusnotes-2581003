@@ -11,7 +11,18 @@ function loadNotes() {
     try {
         const storedNotes = localStorage.getItem(storageKey);
         const parsedNotes = storedNotes ? JSON.parse(storedNotes) : [];
-        notes = Array.isArray(parsedNotes) ? parsedNotes : [];
+
+        notes = Array.isArray(parsedNotes)
+            ? parsedNotes.filter(note =>
+                note &&
+                typeof note === "object" &&
+                !Array.isArray(note) &&
+                typeof note.subject === "string" &&
+                typeof note.title === "string" &&
+                typeof note.content === "string"
+            )
+            : [];
+
     } catch (error) {
         console.warn("Unable to load notes from local storage:", error);
         notes = [];
