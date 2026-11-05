@@ -1,26 +1,46 @@
 # CampusNotes
 
-CampusNotes is a simple academic notes management application.
+A simple academic notes management application designed to help students create, organize, and manage their study notes.
 
-Features
-- Add academic notes
+## Features
+
+- Add new academic notes
 - Organize notes by subject
 - View saved notes
-- Delete notes
-- Save notes using browser Local Storage
+- Delete unwanted notes
+- Store notes using browser Local Storage
 
-Technologies Used
-- HTML
-- CSS
-- JavaScript
+## Technologies Used
 
-How to Run
-1. Clone or download this repository.
-2. Open the project in VS Code.
-3. Open index.html in your browser.
+- HTML5 – Application structure
+- CSS3 – Styling and layout
+- JavaScript – Application functionality
+- Browser Local Storage – Data persistence
 
-Project Purpose
-Created as part of the Version Control System (CSE25303) assignment.
+## Installation
 
-## Collaboration Test
-This change was committed from a second local clone to verify the remote workflow.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/abhirambinil-08/vcs-campusnotes-2581003.git
+   ```
+2. Open the project folder in VS Code.
+3. Open `index.html` in your browser.
+
+## Project Structure
+
+```text
+CampusNotes/
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+└── .gitignore
+```
+
+## Purpose
+
+This project was created as part of the Version Control System (CSE25303) assignment to demonstrate Git and GitHub collaboration workflows.
+
+## Contribution
+
+Contributions and suggestions for improving the application are welcome.
